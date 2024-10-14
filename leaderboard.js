@@ -25,7 +25,7 @@ class Leaderboard {
 
     displayLeaderboard() {
         const leaderboardDiv = document.getElementById('leaderboard');
-        leaderboardDiv.innerHTML = '';
+        leaderboardDiv.innerHTML = '<h2>Leaderboard</h2>';
         for (let i = 0; i < 3; i++) {
             const key = `level${i + 1}`;
             const scores = this.scores[key] || [];
@@ -37,6 +37,12 @@ class Leaderboard {
             `;
             leaderboardDiv.innerHTML += leaderboardHtml;
         }
+    }
+
+    clearLeaderboard() {
+        this.scores = {};
+        this.saveScores();
+        this.displayLeaderboard();
     }
 }
 
